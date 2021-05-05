@@ -1,24 +1,6 @@
-
-#1 - Create a classification tree, using all the data and see if genotype can be determined 
-#       based on: sex, culmen and wing length (Right.Wing). You'll note there are two 
-#       genotype cols - these are grouped differently and we want to do a separate key for both. 
-#       So, Genotype.1 and Genotype.2
-#2 - Repeat the classification tree in 1, but for birds from the North and South Island 
-#       separately (Island)
-#3 - Create a classification tree using data collected during banding (study number 2) 
-#       and see if Genotype.1 and Genotype.2 can be determined based on: Sex, Total.Mass, 
-#       Culmen, Right.Wing, Head, Tarsus and Keel
-#4 - Create a classification tree using data collected during hunting (study number 3) 
-#       and see if Genotype.1 and Genotype.2 can be determined based on:  Sex, Total.Mass, 
-#       Body.Length, Tail.Length, Culmen, Nares, Bill.Width, Right.Wing and Tarsus
-#5 - Repeat steps 1-4 above, but instead of testing genotype, test Phenotype
-
-
 setwd("D:/Datasci/duckproj")
 
 fulldat = read.csv("Combined_Data.csv")
-
-#colnames(fulldat) = c(colnames(fulldat)[1:9], "Right Wing", colnames(fulldat)[11:23])
 
 
 
@@ -26,7 +8,8 @@ library(party)
 library(ggparty)
 library(caret)
 
-
+#### GRAPHING FUNCTIONS ####
+# The following code is the creation of the functions needed to graph the party datatype in a visually attractive way.
 
 # Graphing functions for colour
 
@@ -263,8 +246,6 @@ phenofun = function(x){
         geom_edge_label()
 }
 
-geno1fun(fit)
-
 
 # Functions for missing GREY duck pops
 
@@ -441,6 +422,7 @@ geno2fun3(fit)
 
 
 #### PERFORMANCE ####
+# The following code is used to measure the performance of the decision trees.
 
 performfunc = function(df, runs=1000){
     
@@ -1056,6 +1038,12 @@ weightfuncP = function(x){
     #print(weightg1[1:30])
     return(weight)
 }
+
+
+
+#### Creating Trees ####
+# The client had specific requests as to a variety of different combinations of variables that they wanted included.
+# Each of the following sections is devoted to these combinations.
 
 
 ##################
