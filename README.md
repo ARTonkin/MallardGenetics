@@ -1,4 +1,4 @@
-## MallardGenetics
+## Mallard Genetics Consulting Project
 
 See my website www.tonkinprojects.com for a more indepth description and some sample outputs.
 
